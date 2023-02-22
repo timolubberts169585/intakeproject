@@ -1,0 +1,65 @@
+/*
+SASS styling voor de pagina's
+Probeer zo min mogelijk styling te herhalen.
+*/
+/* vars */
+$clr-base: #ff7e00;
+/* eof vars */
+*{
+    font-family: sans-serif;
+}
+a{
+    text-decoration: none;           
+}
+
+
+
+.login {
+
+    width: 500px;
+    align-content: center;
+    margin: 0 auto;
+    text-align: center;
+
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 2px 2px 5px #ccc;
+    border-radius: 25px;
+    //font-size: 24px;
+
+    &__title {
+        h2 {
+            margin: 0px auto;
+        }
+    }
+
+    &__form {
+
+
+        &--input {
+            width: 100%;
+            padding: 15px 20px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+        }
+
+        &--button {
+            width: 100%;
+            background-color: $clr-base;
+            padding: 15px 0px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+
+            a{
+                color: white;
+
+            }
+        }
+
+    }
+}
