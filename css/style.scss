@@ -61,5 +61,19 @@ a{
             }
         }
 
+        &--register{
+            a{
+                display: block;
+                width: 100%;
+                background-color: $clr-base;
+                padding: 15px 0px;
+                margin: 10px 0;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                color: white;
+            }
+        }
+
     }
 }

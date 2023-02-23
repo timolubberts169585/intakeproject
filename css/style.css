@@ -14,25 +14,31 @@ a {
 
 .login {
   width: 500px;
-  align-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   margin: 0 auto;
   text-align: center;
   border: 1px solid #ccc;
   padding: 20px;
-  box-shadow: 2px 2px 5px #ccc;
+  -webkit-box-shadow: 2px 2px 5px #ccc;
+          box-shadow: 2px 2px 5px #ccc;
   border-radius: 25px;
 }
+
 .login__title h2 {
   margin: 0px auto;
 }
+
 .login__form--input {
   width: 100%;
   padding: 15px 20px;
   margin: 10px 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 15px;
 }
+
 .login__form--button {
   width: 100%;
   background-color: #ff7e00;
@@ -43,6 +49,20 @@ a {
   cursor: pointer;
   color: white;
 }
+
 .login__form--button a {
   color: white;
-}/*# sourceMappingURL=style.css.map */
+}
+
+.login__form--register a {
+  display: block;
+  width: 100%;
+  background-color: #ff7e00;
+  padding: 15px 0px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+/*# sourceMappingURL=style.css.map */

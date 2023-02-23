@@ -5,7 +5,6 @@ include_once './connect.php';
 $errormessage = '';
 
 if (!empty($_POST['login'])) {
-    print_r($_POST);
     $query = "SELECT * FROM `user` WHERE `username` = '" . $_POST['username'] . "' ";
     $stmt = $pdo->query($query);
     $user = $stmt->fetch();
@@ -52,8 +51,11 @@ if (isset($_SESSION['userid'])) {
 
                 <input class="login__form--button" type="submit" value="Inloggen">
             </form>
-            <div class="login__form--button">
+            <div class="login__form--register">
                 <a href="./register.php">Nog geen account? Maak er hier een aan!</a>
+            </div>
+            <div class="login__form--forgor">
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Wachtwoord vergeten?</a>
             </div>
             <?php
             echo $errormessage;
