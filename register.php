@@ -14,7 +14,6 @@ $maxPassLen = 30;
 
 if (!empty($_POST['register'])) {
     // Verify input
-    // Username
     $query = "SELECT `username` FROM `user` WHERE `username` = '" . $_POST['username'] . "'";
     $stmt = $pdo->query($query);
     $user = $stmt->fetch();
@@ -26,12 +25,12 @@ if (!empty($_POST['register'])) {
             && strlen($_POST['lastname']) >= 1 && strlen($_POST['lastname']) <= 30
             ){
 
-                // Verify password
+                // Check password is the same and length
                 if( $_POST['password'] === $_POST['password2'] 
                 && strlen($_POST['password']) >= $minPassLen 
                 && strlen($_POST['password']) <= $maxPassLen){
 
-                    // Check input
+                    // Check input contains special character
                     foreach($_POST as $val){
                         if(preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $val)){
                             $errormessage = 'Gebruik geen speciale tekens (/[\'^£$%&*()}{@#~?><>,|=_+¬-]/)';

@@ -8,11 +8,12 @@ if (!empty($_POST['login'])) {
     $query = "SELECT * FROM `user` WHERE `username` = '" . $_POST['username'] . "' ";
     $stmt = $pdo->query($query);
     $user = $stmt->fetch();
+
     if (empty($user)) {
+        // No record found in database
         $errormessage = 'Ongeldige inloggegevens!';
     } else {
         if(password_verify($_POST['password'], $user['password'])){
-            print_r($user);
 
             $_SESSION['userid'] = $user['userid'];
             $_SESSION['username'] = $user['username'];
@@ -22,6 +23,7 @@ if (!empty($_POST['login'])) {
 
             header('Location: ./index.php');
             die();
+
         } else{
             $errormessage = 'Ongeldige inloggegevens!';
         }
@@ -41,10 +43,8 @@ if (isset($_SESSION['userid'])) {
         </div>
         <div class="login__form">
             <form action="#" method="POST">
-                <!-- <label for="employeeID">Medewerkersnummer</label> -->
                 <input class="login__form--input" type="text" placeholder="Gebruikersnaam" name="username">
 
-                <!-- <label for="password">Wachtwoord</label> -->
                 <input class="login__form--input" type="password" placeholder="Wachtwoord" name="password">
 
                 <input type="hidden" name="login" value="1">

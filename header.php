@@ -29,6 +29,15 @@
               <li class="main-menu__item">
                 <a href="./index.php">Home</a>
               </li>
+              <li class="main-menu__item">
+                <a href="./index.php">HTML</a>
+              </li>
+              <li class="main-menu__item">
+                <a href="./index.php">CSS</a>
+              </li>
+              <li class="main-menu__item">
+                <a href="./index.php">Python</a>
+              </li>
               <li class="main-menu__item menu-login">
                 <a href="./logout.php">Uitloggen</a>
               </li>
