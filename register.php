@@ -48,7 +48,26 @@ if (!empty($_POST['register'])) {
                         ];
 
                         $stmt = $pdo->prepare($query)->execute($data);
+                        $insertId = $pdo->lastInsertId();
+                        
 
+                        // Add default records
+                        for($i = 1; $i <= 3; $i++){
+                            $query = "INSERT INTO quiz_timing (userid, quizid) VALUES (:userid, :quizid)";
+                            $data = [
+                                'userid' => $insertId,
+                                'quizid' => $i
+                            ];
+
+                            $lastId = $pdo->lastInsertId();
+
+                            $stmt = $pdo->prepare($query);
+                            $stmt->bindValue(1, $lastId);
+                            $stmt->execute($data);
+
+                            
+
+                        }
                         header('Location: ./login.php');
                         die();
                     }     

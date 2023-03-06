@@ -14,9 +14,9 @@
   //   die();
   // }
   ?>
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/header.css">
-  <link rel="stylesheet" href="./css/footer.css">
+  <link rel="stylesheet" href="/intakeproject/css/style.css">
+  <link rel="stylesheet" href="/intakeproject/css/header.css">
+  <link rel="stylesheet" href="/intakeproject/css/footer.css">
   <header class="header">
     <nav class="header__nav">
       <div class="header__nav--desktop">
