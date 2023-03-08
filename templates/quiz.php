@@ -1,67 +1,56 @@
 <?php 
 include_once '../header.php'; 
+include_once '../connect.php';
+
 $loggedIn = false;
 if(isset($_SESSION['userid'])){
     $loggedIn = true;
 } else{
     $loggedIn = false;
 }
+
+$quizid = $_GET['quizid'];
 ?>
+<script type="text/javascript" src="../js/script.js"></script>
 <main>
     <?php 
     if($loggedIn == false){
         echo "<p>Je moet ingelogd zijn om deze pagina te bekijken.</p>";
+    } else{
+        ?>
+        <!-- Content -->
+        <div class="wrapper">
+                <?php
+                
+                $query = "SELECT * FROM question WHERE quiz = " . $quizid . "";
+                $stmt = $pdo->query($query);
+                $questions = $stmt->fetchAll();
+                
+                foreach($questions as $question){
+                    ?>
+
+                    <div class="question <?php if($question['placement'] == 1){ echo 'active'; } ?>">
+
+                    <?php 
+                    if($question['type'] === 1){
+                        include './question_multiplechoice.php';
+                    } elseif($question['type'] === 3){
+                        include './question_open.php';
+
+                    } else if($question['type'] === 4){
+                        include './question_code.php';
+
+                    }
+                    ?>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+        <?php
     }
     ?>
-    <!-- Content -->
-    <div class="question">
-        <div class="question__id">
-            <p>Vraag 1</p>
-        </div>
-        <div class="question__title">
-            <h5>Hoe print je hello world?</h5>
-        </div>
-        <div class="question__description">
-            <p>10 levels per programmeertaal.
-            Python, CSS en HTML Quiz.
-            levels gaan van makkelijk naar moeilijk.
-            je mag zelf bepalen welke level je maakt dus het is niet per se dat je van level 1 naar 10 gaat maar je moet ze wel allemaal afronden.
-            je kan elk level maar 1 keer maken.
-            als je het antwoord niet goed hebt komt het antwoord in beeld en moet je door naar de volgende vraag.
-            Voor elke taal heb je 5 multiple choice vragen en 5 programmeer vragen.
-            Een extra kopje voor algemene info over de opleiding
-            Einde van algemene info staat een open vraag voor wat studenten verwachten van de opleiding.
-            </p>
-        </div>
-        <div class="question__wrapper">
-            <form action="">
-                <div class="question__wrapper--option">
-                    <label for="option2">Vraag 2</label>
-                    <input type="radio" value="Vraag2" name="option2">
-                </div>
-
-                <div class="question__wrapper--option">
-                    <label for="option2">Vraag 2</label>
-                    <input type="radio" value="Vraag2" name="option2">
-                </div>
-
-                <div class="question__wrapper--option">
-                    <label for="option2">Vraag 2</label>
-                    <input type="radio" value="Vraag2" name="option2">
-                </div>
-
-                <div class="question__wrapper--option">
-                    <label for="option2">Vraag 2</label>
-                    <input type="radio" value="Vraag2" name="option2">
-                </div>
-
-
-
-                <input type="submit" name="Sunmit" value="submit">
-            </form>
-            
-        </div>
-    </div>
+    
 </main>
 <?php 
 include_once '../footer.php';

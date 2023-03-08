@@ -60,4 +60,9 @@ a {
 
 .question {
   padding: 50px;
+  position: absolute;
+  display: none;
+}
+.active {
+  display: block;
 }/*# sourceMappingURL=style.css.map */
