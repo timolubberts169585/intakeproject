@@ -10,6 +10,15 @@ if(isset($_SESSION['userid'])){
 }
 
 $quizid = $_GET['quizid'];
+
+
+$query = "SELECT * FROM quiz_timing WHERE userid = " . $_SESSION['userid'] . " AND quizid = " . $quizid . " LIMIT 1";
+$stmt = $pdo->query($query);
+$quizTiming = $stmt->fetch();
+
+// $query = "SELECT * FROM quiz_progress WHERE quiz_timingid = " . $quizTiming['id'] . "";
+// $stmt = $pdo->query($query);
+// $quizProgress = $stmt->fetchAll();
 ?>
 <script type="text/javascript" src="../js/script.js"></script>
 <main>
@@ -45,12 +54,17 @@ $quizid = $_GET['quizid'];
 
                     if($question['placement'] != 1){
                         ?>
-                        <input class="prev <?php echo $question['placement']; ?>" type="button" name="submit" value="Vorige vraag">
+                        <input class="prev <?php echo $question['placement']; ?>" type="button" name="submit" value="Vorige vraag" onclick="prevQuestion()">
                         <?php
                     } 
                     if($question['placement'] != count($questions)){
                         ?>
-                        <input class="next <?php echo $question['placement']; ?>" type="button" name="submit" value="Volgende vraag">
+                        <input class="next <?php echo $question['placement']; ?>" type="button" name="submit" value="Volgende vraag" onclick="nextQuestion()">
+                        <?php
+                    }
+                    if($question['placement'] == count($questions)){
+                        ?>
+                        <input class="submit" type="button" name="submit" value="Afronden" onclick="submit()">
                         <?php
                     }
                     $questionCtr++;

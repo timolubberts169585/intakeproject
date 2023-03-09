@@ -15,7 +15,7 @@
         $ctr = 1;
         foreach($options as $option){
             ?>
-            <div class="question__wrapper--option">
+            <div id="option-<?php echo $ctr; ?>" class="question__wrapper--option">
                 <input type="radio" name="option<?php echo $ctr; ?>">
                 <label for="option<?php echo $ctr; ?>"><?php echo htmlentities($option); ?></label>
             </div>

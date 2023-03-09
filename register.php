@@ -64,8 +64,22 @@ if (!empty($_POST['register'])) {
                             $stmt = $pdo->prepare($query);
                             $stmt->bindValue(1, $lastId);
                             $stmt->execute($data);
-
                             
+                            $query = "SELECT * FROM question WHERE quizid = " . $i . "";
+                            $stmt = $pdo->query($query);
+                            $questions = $stmt->fetchAll();
+
+                            foreach($questions as $question){
+                                $query = "INSERT INTO quiz_progress (quiz_timingid, question, input, correct) VALUES (:quiz_timingid, :question, :input, :correct)";
+                                $data = [
+                                    'quiz_timingid' => $lastId,
+                                    'question' => $question['id'],
+                                    'input' => '',
+                                    'correct' => 0
+                                ];
+                                $stmt->execute($data);
+                            }
+
 
                         }
                         header('Location: ./login.php');
