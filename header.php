@@ -10,7 +10,6 @@
   <?php
   session_start();
 
-  $path = __DIR__;
   ?>
   <link rel="stylesheet" href="/intakeproject/css/style.css">
   <link rel="stylesheet" href="/intakeproject/css/header.css">
@@ -27,18 +26,23 @@
               <li class="main-menu__item">
                 <a href="./index.php">Home</a>
               </li>
+
               <li class="main-menu__item">
                 <a href="./templates/quiz.php?quizid=2">HTML</a>
               </li>
+
               <li class="main-menu__item">
                 <a href="./templates/quiz.php?quizid=3">CSS</a>
               </li>
+
               <li class="main-menu__item">
                 <a href="./templates/quiz.php?quizid=1">Python</a>
               </li>
+
               <li class="main-menu__item menu-login">
                 <a href="./logout.php">Uitloggen</a>
               </li>
+
             <?php } else{ ?>
               <li class="main-menu__item menu-login">
                 <a href="./login.php">Inloggen</a>

@@ -24,16 +24,6 @@
             $ctr++;
         }
 
-        if($question['placement'] != 1){
-            ?>
-            <input class="prev <?php echo $question['placement']; ?>" type="button" name="submit" value="Vorige vraag">
-            <?php
-        } 
-        if($question['placement'] != count($questions)){
-            ?>
-            <input class="next <?php echo $question['placement']; ?>" type="button" name="submit" value="Volgende vraag">
-            <?php
-        }//TODO: Javascript shizzle
         ?>
         
         

@@ -26,10 +26,11 @@ $quizid = $_GET['quizid'];
                 $stmt = $pdo->query($query);
                 $questions = $stmt->fetchAll();
                 
+                $questionCtr = 1;
                 foreach($questions as $question){
                     ?>
 
-                    <div class="question <?php if($question['placement'] == 1){ echo 'active'; } ?>">
+                    <div id="<?php echo $questionCtr; ?>" class="question">
 
                     <?php 
                     if($question['type'] === 1){
@@ -41,6 +42,18 @@ $quizid = $_GET['quizid'];
                         include './question_code.php';
 
                     }
+
+                    if($question['placement'] != 1){
+                        ?>
+                        <input class="prev <?php echo $question['placement']; ?>" type="button" name="submit" value="Vorige vraag">
+                        <?php
+                    } 
+                    if($question['placement'] != count($questions)){
+                        ?>
+                        <input class="next <?php echo $question['placement']; ?>" type="button" name="submit" value="Volgende vraag">
+                        <?php
+                    }
+                    $questionCtr++;
                     ?>
                     </div>
                     <?php
