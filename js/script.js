@@ -10,13 +10,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 function nextQuestion() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            //document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-        }
+    xmlhttp.onload = function() {
+        console.log(this.responseText);
+        // If you wanted to call the function in here, then just make another whole xhr var and send it in this function
     }
-    xmlhttp.open("GET", "download.php?q=" + str, true);
-    xmlhttp.send();
+    
+    xmlhttp.open("POST", "../checkanswer.php", true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlhttp.send('function=test');
 
     questions[activeQuestion].classList.remove('active');
     activeQuestion++;

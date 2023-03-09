@@ -16,9 +16,10 @@ $query = "SELECT * FROM quiz_timing WHERE userid = " . $_SESSION['userid'] . " A
 $stmt = $pdo->query($query);
 $quizTiming = $stmt->fetch();
 
-// $query = "SELECT * FROM quiz_progress WHERE quiz_timingid = " . $quizTiming['id'] . "";
-// $stmt = $pdo->query($query);
-// $quizProgress = $stmt->fetchAll();
+$query = "SELECT * FROM quiz_progress WHERE quiz_timingid = " . $quizTiming['id'] . "";
+$stmt = $pdo->query($query);
+$quizProgress = $stmt->fetchAll();
+print_r($quizProgress);
 ?>
 <script type="text/javascript" src="../js/script.js"></script>
 <main>

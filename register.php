@@ -58,26 +58,33 @@ if (!empty($_POST['register'])) {
                                 'userid' => $insertId,
                                 'quizid' => $i
                             ];
+                 
+
+                            $stmt = $pdo->prepare($query);
+                            //$stmt->bindValue(1, $lastId);
+                            $stmt->execute($data);
 
                             $lastId = $pdo->lastInsertId();
 
-                            $stmt = $pdo->prepare($query);
-                            $stmt->bindValue(1, $lastId);
-                            $stmt->execute($data);
-                            
-                            $query = "SELECT * FROM question WHERE quizid = " . $i . "";
+                            $query = "SELECT * FROM question WHERE quiz = " . $i . "";
                             $stmt = $pdo->query($query);
                             $questions = $stmt->fetchAll();
 
+                            
                             foreach($questions as $question){
-                                $query = "INSERT INTO quiz_progress (quiz_timingid, question, input, correct) VALUES (:quiz_timingid, :question, :input, :correct)";
-                                $data = [
-                                    'quiz_timingid' => $lastId,
-                                    'question' => $question['id'],
-                                    'input' => '',
-                                    'correct' => 0
-                                ];
-                                $stmt->execute($data);
+                                $query = "INSERT INTO quiz_progress (quiz_timingid, question) VALUES (:quiz_timingid, :question)";
+                                // $data = [
+                                //     'quiz_timingid' => $lastId,
+                                //     'question' => $question['id'],
+                                //     'correct' => 0
+                                // ];
+                                // $stmt->execute($data);
+                                $stmt = $pdo->prepare($query);
+                                $stmt->bindParam(':quiz_timingid', $lastId, PDO::PARAM_INT);
+                                $stmt->bindParam(':question', $question['id'], PDO::PARAM_INT);
+                                // $stmt->bindParam(':correct', false, PDO::PARAM_BOOL);
+                                $stmt->execute();
+                                //echo "Last id = " . $lastId . " -- Question id = " . $question['id'] . "<br>";
                             }
 
 
