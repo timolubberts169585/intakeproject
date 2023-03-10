@@ -7,7 +7,7 @@
 <div class="question__description">
     <p><?php echo $question['description']; ?></p>
 </div>
-<div class="question__wrapper">
+<div class="question__wrapper multiplechoice">
     <form action="#">
         <?php
 
@@ -15,10 +15,8 @@
         $ctr = 1;
         foreach($options as $option){
             ?>
-            <div id="option-<?php echo $ctr; ?>" class="question__wrapper--option">
-                <input type="radio" name="option<?php echo $ctr; ?>">
-                <label for="option<?php echo $ctr; ?>"><?php echo htmlentities($option); ?></label>
-            </div>
+            <input id="option-<?php echo $ctr; ?>" class="input" type="radio" name="option">
+            <label for="option<?php echo $ctr; ?>"><?php echo htmlentities($option); ?></label>
 
             <?php
             $ctr++;

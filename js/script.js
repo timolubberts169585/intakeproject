@@ -8,16 +8,32 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 })
 
-function nextQuestion() {
+function checkAnswer(id, input) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
         console.log(this.responseText);
-        // If you wanted to call the function in here, then just make another whole xhr var and send it in this function
+        if(xmlhttp.responseText == 'true'){
+            for(i = 0; i < options.length; i++){
+                options[i].classList.add('answered');
+            }
+            nextQuestion();
+        }
     }
-    
+    var options = document.getElementById(input).getElementsByClassName("input");
+    var answer;
+    for(i = 0; i < options.length; i++){
+        if(options[i].checked){
+            answer = i;
+        }
+    }
     xmlhttp.open("POST", "../checkanswer.php", true);
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xmlhttp.send('function=test');
+    xmlhttp.send('function=test&id='+id+'&input='+answer);
+
+
+}
+
+function nextQuestion() {
 
     questions[activeQuestion].classList.remove('active');
     activeQuestion++;

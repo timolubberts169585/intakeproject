@@ -16,10 +16,9 @@ $query = "SELECT * FROM quiz_timing WHERE userid = " . $_SESSION['userid'] . " A
 $stmt = $pdo->query($query);
 $quizTiming = $stmt->fetch();
 
-$query = "SELECT * FROM quiz_progress WHERE quiz_timingid = " . $quizTiming['id'] . "";
+$query = "SELECT * FROM quiz_progress qp LEFT JOIN question q ON qp.question = q.id WHERE qp.quiz_timingid = " . $quizTiming['id'] . "";
 $stmt = $pdo->query($query);
 $quizProgress = $stmt->fetchAll();
-print_r($quizProgress);
 ?>
 <script type="text/javascript" src="../js/script.js"></script>
 <main>
@@ -32,15 +31,15 @@ print_r($quizProgress);
         <div class="wrapper">
                 <?php
                 
-                $query = "SELECT * FROM question WHERE quiz = " . $quizid . "";
-                $stmt = $pdo->query($query);
-                $questions = $stmt->fetchAll();
+                // $query = "SELECT * FROM question WHERE quiz = " . $quizid . "";
+                // $stmt = $pdo->query($query);
+                // $questions = $stmt->fetchAll();
+
                 
-                $questionCtr = 1;
-                foreach($questions as $question){
+                foreach($quizProgress as $question){
                     ?>
 
-                    <div id="<?php echo $questionCtr; ?>" class="question">
+                    <div id="<?php echo $question['placement']; ?>" class="question">
 
                     <?php 
                     if($question['type'] === 1){
@@ -58,17 +57,16 @@ print_r($quizProgress);
                         <input class="prev <?php echo $question['placement']; ?>" type="button" name="submit" value="Vorige vraag" onclick="prevQuestion()">
                         <?php
                     } 
-                    if($question['placement'] != count($questions)){
+                    if($question['placement'] != count($quizProgress)){
                         ?>
-                        <input class="next <?php echo $question['placement']; ?>" type="button" name="submit" value="Volgende vraag" onclick="nextQuestion()">
+                        <input class="next <?php echo $question['placement']; ?>" type="button" name="submit" value="Volgende vraag" onclick="checkAnswer(<?php echo $question['id'] . ', ' . $question['placement']; ?>)">
                         <?php
                     }
-                    if($question['placement'] == count($questions)){
+                    if($question['placement'] == count($quizProgress)){
                         ?>
                         <input class="submit" type="button" name="submit" value="Afronden" onclick="submit()">
                         <?php
                     }
-                    $questionCtr++;
                     ?>
                     </div>
                     <?php

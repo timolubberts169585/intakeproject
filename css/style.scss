@@ -101,8 +101,12 @@ a{
     }
 
     &__wrapper{
-        &--option{
+        
+    }
 
+    .multiplechoice{
+        .answered{
+            pointer-events: none;
         }
     }
 }

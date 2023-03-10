@@ -1,16 +1,25 @@
 .header__nav--desktop__menu ul {
   list-style: none;
 }
+
 .header__nav--desktop__menu .main-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 15px;
 }
+
 .header__nav--desktop__menu .menu-login {
   margin-left: 24px;
 }
+
 .header__nav--desktop__menu a {
   color: black;
   text-decoration: none;
-}/*# sourceMappingURL=header.css.map */
+}
+/*# sourceMappingURL=header.css.map */
