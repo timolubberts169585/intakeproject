@@ -9,7 +9,6 @@
 <body>
   <?php
   session_start();
-
   ?>
   <link rel="stylesheet" href="/intakeproject/css/style.css">
   <link rel="stylesheet" href="/intakeproject/css/header.css">

@@ -100,16 +100,30 @@ a{
 
     }
 
-    &__wrapper{
-        
-    }
+
 
     .multiplechoice{
-        .answered{
-            pointer-events: none;
-        }
+
     }
 }
 .active{
-    display: block;
+    display: block !important;
+}
+.prev{
+
+}
+.next{
+    display: none;
+}
+
+.check{
+    display: none;
+}
+
+.submit{
+    display: none;
+}
+
+.answered{
+
 }
