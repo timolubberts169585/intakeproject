@@ -11,19 +11,33 @@
                 ul{
                     list-style: none;
                 }
+
                 .main-menu{
                     display: flex;
                     justify-content: center;
                     flex-wrap: wrap;
+                    align-content: space-around;
                     gap: 15px;
+                    margin: 0px;
+                    padding: 0px;
+                    height: 50px;
+                    
                     &__item{
 
                     }
                 }
 
+
                 .menu-login{
-                    margin-left: 24px;
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    align-content: space-around;
+                    position: absolute;
+                    right: 50px;
+                    height: 50px;
                 }
+
                 a{
                     color: black;
                     text-decoration: none;
@@ -31,4 +45,25 @@
             }
         }
     }
+}
+
+.home{
+    background-color: lightblue;
+}
+
+
+.algemeen{
+    background-color: green;
+}
+
+.html{
+    background-color: orange;
+}
+
+.css{
+    background-color: #264de4;
+}
+
+.python{
+    background-color: yellow;
 }

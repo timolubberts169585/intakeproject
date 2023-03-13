@@ -17,7 +17,19 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/footer.css">
-  <header class="header">
+  <header class="header <?php echo basename($_SERVER['REQUEST_URI']);
+                        if (basename($_SERVER['REQUEST_URI']) == 'quiz.php?quizid=2') {
+                          echo 'html';
+                        } else if (basename($_SERVER['REQUEST_URI']) == 'quiz.php?quizid=3'){
+                          echo 'css';
+                        } else if (basename($_SERVER['REQUEST_URI']) == 'quiz.php?quizid=1') {
+                          echo 'python';
+                        } else {
+                          echo 'algemeen';
+                        }
+
+
+                        ?>">
     <nav class="header__nav">
       <div class="header__nav--desktop">
         <div class="header__nav--desktop__logo">
@@ -41,7 +53,7 @@
               <li class="main-menu__item menu-login">
                 <a href="./logout.php">Uitloggen</a>
               </li>
-            <?php } else{ ?>
+            <?php } else { ?>
               <li class="main-menu__item menu-login">
                 <a href="./login.php">Inloggen</a>
               </li>
