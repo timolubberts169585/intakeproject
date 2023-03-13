@@ -9,10 +9,6 @@
 <body>
   <?php
   session_start();
-  // if(!isset($_SESSION['employeeID'])){
-  //   header('Location: ./login.php');
-  //   die();
-  // }
   ?>
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/header.css">
@@ -41,19 +37,24 @@
               <li class="main-menu__item">
                 <a href="./index.php">Home</a>
               </li>
+
               <li class="main-menu__item">
-                <a href="./index.php">HTML</a>
+                <a href="./templates/quiz.php?quizid=2">HTML</a>
               </li>
+
               <li class="main-menu__item">
-                <a href="./index.php">CSS</a>
+                <a href="./templates/quiz.php?quizid=3">CSS</a>
               </li>
+
               <li class="main-menu__item">
-                <a href="./index.php">Python</a>
+                <a href="./templates/quiz.php?quizid=1">Python</a>
               </li>
+
               <li class="main-menu__item menu-login">
                 <a href="./logout.php">Uitloggen</a>
               </li>
-            <?php } else { ?>
+
+            <?php } else{ ?>
               <li class="main-menu__item menu-login">
                 <a href="./login.php">Inloggen</a>
               </li>

@@ -85,5 +85,47 @@ body{
 }
 
 .question{
+    padding: 50px;
+    position: absolute;
+    display: none;
+    // top:0px;
+    // left:0px;
+    &__id{
+
+    }
+
+    &__title{
+
+    }
+
+    &__description{
+
+    }
+
+
+
+    .multiplechoice{
+
+    }
+}
+.active{
+    display: block !important;
+}
+.prev{
+
+}
+.next{
+    display: none;
+}
+
+.check{
+    display: none;
+}
+
+.submit{
+    display: none;
+}
+
+.answered{
 
 }

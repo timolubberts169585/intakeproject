@@ -60,4 +60,25 @@ body {
   border-radius: 5px;
   cursor: pointer;
   color: white;
+}
+
+.question {
+  padding: 50px;
+  position: absolute;
+  display: none;
+}
+.active {
+  display: block !important;
+}
+
+.next {
+  display: none;
+}
+
+.check {
+  display: none;
+}
+
+.submit {
+  display: none;
 }/*# sourceMappingURL=style.css.map */

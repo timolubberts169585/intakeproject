@@ -48,7 +48,47 @@ if (!empty($_POST['register'])) {
                         ];
 
                         $stmt = $pdo->prepare($query)->execute($data);
+                        $insertId = $pdo->lastInsertId();
+                        
 
+                        // Add default records
+                        for($i = 1; $i <= 3; $i++){
+                            $query = "INSERT INTO quiz_timing (userid, quizid) VALUES (:userid, :quizid)";
+                            $data = [
+                                'userid' => $insertId,
+                                'quizid' => $i
+                            ];
+                 
+
+                            $stmt = $pdo->prepare($query);
+                            //$stmt->bindValue(1, $lastId);
+                            $stmt->execute($data);
+
+                            $lastId = $pdo->lastInsertId();
+
+                            $query = "SELECT * FROM question WHERE quiz = " . $i . "";
+                            $stmt = $pdo->query($query);
+                            $questions = $stmt->fetchAll();
+
+                            
+                            foreach($questions as $question){
+                                $query = "INSERT INTO quiz_progress (quiz_timingid, question) VALUES (:quiz_timingid, :question)";
+                                // $data = [
+                                //     'quiz_timingid' => $lastId,
+                                //     'question' => $question['id'],
+                                //     'correct' => 0
+                                // ];
+                                // $stmt->execute($data);
+                                $stmt = $pdo->prepare($query);
+                                $stmt->bindParam(':quiz_timingid', $lastId, PDO::PARAM_INT);
+                                $stmt->bindParam(':question', $question['id'], PDO::PARAM_INT);
+                                // $stmt->bindParam(':correct', false, PDO::PARAM_BOOL);
+                                $stmt->execute();
+                                //echo "Last id = " . $lastId . " -- Question id = " . $question['id'] . "<br>";
+                            }
+
+
+                        }
                         header('Location: ./login.php');
                         die();
                     }     
