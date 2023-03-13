@@ -8,7 +8,7 @@
 
 <body>
   <?php
-  $path = '82.172.3.247/intakeproject';
+  $path = 'http://82.172.3.247/intakeproject';
   session_start();
   ?>
   <link rel="stylesheet" href="http://82.172.3.247/intakeproject/css/style.css">
@@ -36,28 +36,28 @@
           <ul class="main-menu">
             <?php if (isset($_SESSION['userid'])) { ?>
               <li class="main-menu__item">
-                <a href="./index.php">Home</a>
+                <a href="<?php echo $path; ?>/index.php">Home</a>
               </li>
 
               <li class="main-menu__item">
-                <a href="./templates/quiz.php?quizid=2">HTML</a>
+                <a href="<?php echo $path; ?>/templates/quiz.php?quizid=2">HTML</a>
               </li>
 
               <li class="main-menu__item">
-                <a href="./templates/quiz.php?quizid=3">CSS</a>
+                <a href="<?php echo $path; ?>/templates/quiz.php?quizid=3">CSS</a>
               </li>
 
               <li class="main-menu__item">
-                <a href="./templates/quiz.php?quizid=1">Python</a>
+                <a href="<?php echo $path; ?>/templates/quiz.php?quizid=1">Python</a>
               </li>
 
               <li class="main-menu__item menu-login">
-                <a href="./logout.php">Uitloggen</a>
+                <a href="<?php echo $path; ?>/logout.php">Uitloggen</a>
               </li>
 
             <?php } else{ ?>
               <li class="main-menu__item menu-login">
-                <a href="./login.php">Inloggen</a>
+                <a href="<?php echo $path; ?>/login.php">Inloggen</a>
               </li>
             <?php } ?>
           </ul>
