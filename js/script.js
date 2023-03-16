@@ -4,20 +4,20 @@ var activeQuestion = 0;
 var next;
 var prev;
 var check;
-var submit;
+var submitBtn;
 
 window.addEventListener('DOMContentLoaded', (event) => {
     questions[activeQuestion].classList.add('active');
     next = document.getElementById('next');
     prev = document.getElementById('prev');
     check = document.getElementById('check');
-    submit = document.getElementById('submit');
+    submitBtn = document.getElementById('submit');
 
 })
 
 
 
-function checkAnswer(id, input) {
+function checkAnswer(id, input, quizTimingID) {
     var currQuestion = document.getElementById(input);
     var options = currQuestion.getElementsByClassName("input");
     var answer;
@@ -29,19 +29,20 @@ function checkAnswer(id, input) {
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
-        // console.log(this.responseText);
+        console.log(xmlhttp.responseText);
         if(xmlhttp.responseText == 'true'){
-            
+            currQuestion.getElementsByClassName('question__answer--correct')[0].classList.add('active');
+        } else{
+            currQuestion.getElementsByClassName('question__answer--false')[0].classList.add('active');
+
         }
 
         for(i = 0; i < options.length; i++){
-            options[i].classList.add('answered');
+            options[i].classList.add('done');
         }
         check.classList.remove('active');
 
         currQuestion.classList.add('answered');
-
-        // console.log(input + ' -- ' + activeQuestion + ' -- ' + questions.length);
 
         if(input == questions.length){
             submit.classList.add('active');
@@ -59,7 +60,7 @@ function checkAnswer(id, input) {
     }
     xmlhttp.open("POST", "../checkanswer.php", true);
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xmlhttp.send('function=test&id='+id+'&input='+answer);
+    xmlhttp.send('function=checkAnswer&id='+id+'&input='+answer+'&quiztimingid='+quizTimingID);
 
 
 }
@@ -74,21 +75,6 @@ function nextQuestion() {
         submit.classList.add('active');
         next.classList.remove('active');
 
-    } else if(activeQuestion == 1){
-        next.classList.add('active');
-
-        
-    } else{
-        submit.classList.remove('active');
-
-    }
-
-    if(questions[activeQuestion].classList.contains('answered')){
-        console.log('Answered');
-        check.classList.remove('active');
-
-    } else{
-        check.classList.add('active');
     }
 }
 
@@ -96,18 +82,8 @@ function prevQuestion() {
     questions[activeQuestion].classList.remove('active');
     activeQuestion--;
     questions[activeQuestion].classList.add('active');
-    check.classList.remove('active');
-    submit.classList.remove('active')
-
-    if(activeQuestion == 1){
-        next.classList.add('active');
-    }
-
-    if(questions[activeQuestion].classList.contains('answered')){
-        console.log('Answered');
-    }
 }
 
-function submit(){
-    console.log('L');
+function a_submit(){
+    
 }

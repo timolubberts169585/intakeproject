@@ -102,8 +102,38 @@ body{
 
     }
 
+    &__nav{
+        padding-top:40px;
+        display: flex;
+        flex-direction: column;
+        .prev{
+    
+        }
+        .next{
+            display: none;
+        }
+        
+        .check{
+            display: none;
+        
+        }
+        
+        .submit{
+            display: none;
+        }
+    }
 
+    &__answer{
+        
+        &--correct{
+            display: none;
+        }
 
+        &--false{
+            display: none;
+
+        }
+    }
     .multiplechoice{
 
     }
@@ -111,21 +141,7 @@ body{
 .active{
     display: block !important;
 }
-.prev{
 
-}
-.next{
-    display: none;
-}
-
-.check{
-    display: none;
-}
-
-.submit{
-    display: none;
-}
-
-.answered{
-
+.done{
+    pointer-events: none;
 }
