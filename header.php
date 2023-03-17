@@ -17,7 +17,7 @@
   <header class="header <?php
                         if (basename($_SERVER['REQUEST_URI']) == 'quiz.php?quizid=2') {
                           echo 'html';
-                        } else if (basename($_SERVER['REQUEST_URI']) == 'quiz.php?quizid=3'){
+                        } else if (basename($_SERVER['REQUEST_URI']) == 'quiz.php?quizid=3') {
                           echo 'css';
                         } else if (basename($_SERVER['REQUEST_URI']) == 'quiz.php?quizid=1') {
                           echo 'python';
@@ -55,7 +55,7 @@
                 <a href="<?php echo $path; ?>/logout.php">Uitloggen</a>
               </li>
 
-            <?php } else{ ?>
+            <?php } else { ?>
               <li class="main-menu__item menu-login">
                 <a href="<?php echo $path; ?>/login.php">Inloggen</a>
               </li>
