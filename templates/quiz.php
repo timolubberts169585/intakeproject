@@ -2,6 +2,7 @@
 include_once '../header.php';
 include_once '../connect.php';
 
+
 $loggedIn = false;
 if (isset($_SESSION['userid'])) {
     $loggedIn = true;
@@ -15,9 +16,14 @@ $quizid = $_GET['quizid'];
 $query = "SELECT * FROM quiz_timing WHERE userid = " . $_SESSION['userid'] . " AND quizid = " . $quizid . " LIMIT 1";
 $stmt = $pdo->query($query);
 $quizTiming = $stmt->fetch();
+
 $query = "SELECT * FROM quiz_progress qp LEFT JOIN question q ON qp.question = q.id WHERE qp.quiz_timingid = " . $quizTiming['id'] . "";
 $stmt = $pdo->query($query);
 $quizProgress = $stmt->fetchAll();
+
+$query = "SELECT * FROM question q LEFT JOIN quiztiming qt ON qt.id = " . $quizTiming['id'] . " WHERE qt.quiz = " . $quizTiming['quizid'] . "";
+$stmt = $pdo->query($query);
+$questions = $stmt->fetchAll();
 ?>
 <script type="text/javascript" src="../js/script.js"></script>
 <main>
@@ -31,6 +37,7 @@ $quizProgress = $stmt->fetchAll();
             <?php
 
             foreach ($quizProgress as $question) {
+                print_r($question);
             ?>
 
                 <div id="<?php echo $question['placement']; ?>" class="question">
