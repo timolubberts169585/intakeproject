@@ -8,14 +8,14 @@
 
 <body>
   <?php
-  $path = 'http://82.172.3.247/intakeproject';
+  $path = 'http://82.172.3.247/intakeproject-guido';
   session_start();
   ?>
-  <link rel="stylesheet" href="http://82.172.3.247/intakeproject/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://82.172.3.247/intakeproject-guido/css/bootstrap.min.css">
 
-  <link rel="stylesheet" href="http://82.172.3.247/intakeproject/css/style.css">
-  <link rel="stylesheet" href="http://82.172.3.247/intakeproject/css/header.css">
-  <link rel="stylesheet" href="http://82.172.3.247/intakeproject/css/footer.css">
+  <link rel="stylesheet" href="http://82.172.3.247/intakeproject-guido/css/style.css">
+  <link rel="stylesheet" href="http://82.172.3.247/intakeproject-guido/css/header.css">
+  <link rel="stylesheet" href="http://82.172.3.247/intakeproject-guido/css/footer.css">
   <header class="header <?php
                         if (basename($_SERVER['REQUEST_URI']) == 'quiz.php?quizid=2') {
                           echo 'html';
