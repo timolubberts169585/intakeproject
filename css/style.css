@@ -81,4 +81,12 @@ body {
 
 .submit {
   display: none;
+}
+
+.quizzes {
+  border: 1px solid red;
+}
+
+.link {
+  color: #000;
 }/*# sourceMappingURL=style.css.map */
