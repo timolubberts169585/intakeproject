@@ -11,6 +11,8 @@
   $path = 'http://82.172.3.247/intakeproject';
   session_start();
   ?>
+  <link rel="stylesheet" href="http://82.172.3.247/intakeproject/css/bootstrap.min.css">
+
   <link rel="stylesheet" href="http://82.172.3.247/intakeproject/css/style.css">
   <link rel="stylesheet" href="http://82.172.3.247/intakeproject/css/header.css">
   <link rel="stylesheet" href="http://82.172.3.247/intakeproject/css/footer.css">
