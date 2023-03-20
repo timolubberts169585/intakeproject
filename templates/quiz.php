@@ -72,7 +72,6 @@ $quizProgress = $stmt->fetchAll();
                         <input id="submit-<?php echo $question['placement']; ?>" class="submit" type="button" name="submit" value="Naar resultaten" onclick="a_submit()">
 
                     </div>
-
                 </div>
             <?php
             }

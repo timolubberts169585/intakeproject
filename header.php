@@ -11,6 +11,8 @@
   $path = 'http://82.172.3.247/intakeproject';
   session_start();
   ?>
+  <link rel="stylesheet" href="http://82.172.3.247/intakeproject/css/bootstrap.min.css">
+
   <link rel="stylesheet" href="http://82.172.3.247/intakeproject/css/style.css">
   <link rel="stylesheet" href="http://82.172.3.247/intakeproject/css/header.css">
   <link rel="stylesheet" href="http://82.172.3.247/intakeproject/css/footer.css">
@@ -38,6 +40,10 @@
               <li class="main-menu__item">
                 <a href="<?php echo $path; ?>/index.php">Home</a>
               </li>
+
+              <!-- <li class="main-menu__item">
+                <a href="<?php echo $path; ?>/templates/quiz.php?quizid=4">Algemeen</a>
+              </li> -->
 
               <li class="main-menu__item">
                 <a href="<?php echo $path; ?>/templates/quiz.php?quizid=2">HTML</a>
