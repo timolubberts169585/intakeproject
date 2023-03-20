@@ -25,6 +25,10 @@
   text-decoration: none;
 }
 
+.home {
+  background-color: lightblue;
+}
+
 .algemeen {
   background-color: green;
 }
@@ -34,7 +38,7 @@
 }
 
 .css {
-  background-color: rgb(0, 255, 255);
+  background-color: #264de4;
 }
 
 .python {
