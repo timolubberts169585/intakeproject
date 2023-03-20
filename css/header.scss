@@ -1,18 +1,17 @@
 // SASS styling voor header
 
-.header{
-    &__nav{
-        &--desktop{
+.header {
+    &__nav {
+        &--desktop {
 
-            &__logo{
+            &__logo {}
 
-            }
-            &__menu{
-                ul{
+            &__menu {
+                ul {
                     list-style: none;
                 }
 
-                .main-menu{
+                .main-menu {
                     display: flex;
                     justify-content: center;
                     flex-wrap: wrap;
@@ -21,14 +20,12 @@
                     margin: 0px;
                     padding: 0px;
                     height: 50px;
-                    
-                    &__item{
 
-                    }
+                    &__item {}
                 }
 
 
-                .menu-login{
+                .menu-login {
                     display: flex;
                     justify-content: center;
                     flex-wrap: wrap;
@@ -38,7 +35,7 @@
                     height: 50px;
                 }
 
-                a{
+                a {
                     color: black;
                     text-decoration: none;
                 }
@@ -47,23 +44,24 @@
     }
 }
 
-.home{
+.home {
     background-color: lightblue;
+
 }
 
 
-.algemeen{
+.algemeen {
     background-color: green;
 }
 
-.html{
+.html {
     background-color: orange;
 }
 
-.css{
+.css {
     background-color: #264de4;
 }
 
-.python{
+.python {
     background-color: yellow;
 }
