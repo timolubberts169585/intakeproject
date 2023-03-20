@@ -23,8 +23,10 @@
                           echo 'css';
                         } else if (basename($_SERVER['REQUEST_URI']) == 'quiz.php?quizid=1') {
                           echo 'python';
-                        } else {
+                        } else if (basename($_SERVER['REQUEST_URI']) == 'quiz.php?quizid=4') {
                           echo 'algemeen';
+                        } else {
+                          echo 'home';
                         }
 
 
