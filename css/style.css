@@ -83,10 +83,28 @@ body {
   display: none;
 }
 
-.quizzes {
-  border: 1px solid red;
+.jumbotron {
+  margin-top: 20px;
 }
 
-.link {
-  color: #000;
+.knop {
+  background-color: lightblue;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.knop:hover {
+  opacity: 0.8;
+}
+
+.foto {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.row {
+  margin-bottom: 40px;
 }/*# sourceMappingURL=style.css.map */
