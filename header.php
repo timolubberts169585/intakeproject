@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="<?php echo $path; ?>/css/style.css">
   <link rel="stylesheet" href="<?php echo $path; ?>/css/header.css">
   <link rel="stylesheet" href="<?php echo $path; ?>/css/footer.css">
+
+
   <header class="header <?php
                         if (basename($_SERVER['REQUEST_URI']) == 'quiz.php?quizid=2') {
                           echo 'html';

@@ -41,6 +41,7 @@ $quizProgress = $stmt->fetchAll();
 
 ?>
 <script type="text/javascript" src="../js/script.js"></script>
+
 <main>
     <?php
     if ($loggedIn == false) {
@@ -66,7 +67,10 @@ $quizProgress = $stmt->fetchAll();
                     } else if ($question['type'] === 4) {
                         include './question_code-htmlcss.php';
                     } else if ($question['type'] === 5) {
-                        include './question_code-python.php';
+                        ?>
+
+                        <?php
+                        include './question_code-py.php';
                     }
                     ?>
                     <div class="question__nav">
