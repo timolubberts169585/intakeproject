@@ -12,18 +12,33 @@ if (isset($_SESSION['userid'])) {
 
 $quizid = $_GET['quizid'];
 
-
+// Load curr quiz
 $query = "SELECT * FROM quiz_timing WHERE userid = " . $_SESSION['userid'] . " AND quizid = " . $quizid . " LIMIT 1";
 $stmt = $pdo->query($query);
 $quizTiming = $stmt->fetch();
 
+// Load curr questions
+$query = "SELECT * FROM question WHERE quiz = " . $quizTiming['quizid'] . " ORDER BY placement ASC";
+$stmt = $pdo->query($query);
+$questions = $stmt->fetchAll();
+
+// Update progress with new questions
+foreach($questions as $question){
+    $query = "  INSERT IGNORE INTO quiz_progress (quiz_timingid, question) VALUES (:quiz_timingid, :question)";
+
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':quiz_timingid', $quizTiming['id'], PDO::PARAM_INT);
+    $stmt->bindParam(':question', $question['id'], PDO::PARAM_INT);
+
+    $stmt->execute();
+}
+
+// Load curr progress
 $query = "SELECT * FROM quiz_progress qp LEFT JOIN question q ON qp.question = q.id WHERE qp.quiz_timingid = " . $quizTiming['id'] . "";
 $stmt = $pdo->query($query);
 $quizProgress = $stmt->fetchAll();
 
-$query = "SELECT * FROM question q LEFT JOIN quiztiming qt ON qt.id = " . $quizTiming['id'] . " WHERE qt.quiz = " . $quizTiming['quizid'] . "";
-$stmt = $pdo->query($query);
-$questions = $stmt->fetchAll();
+
 ?>
 <script type="text/javascript" src="../js/script.js"></script>
 <main>
@@ -36,8 +51,9 @@ $questions = $stmt->fetchAll();
         <div class="wrapper">
             <?php
 
-            foreach ($quizProgress as $question) {
-                print_r($question);
+            foreach ($questions as $question) {
+                //echo $quizTiming['id'] . ' -- ' . $question['id'] . '<br>';
+                
             ?>
 
                 <div id="<?php echo $question['placement']; ?>" class="question">
@@ -48,7 +64,9 @@ $questions = $stmt->fetchAll();
                     } elseif ($question['type'] === 3) {
                         include './question_open.php';
                     } else if ($question['type'] === 4) {
-                        include './question_code.php';
+                        include './question_code-htmlcss.php';
+                    } else if ($question['type'] === 5) {
+                        include './question_code-python.php';
                     }
                     ?>
                     <div class="question__nav">
@@ -60,7 +78,7 @@ $questions = $stmt->fetchAll();
                         <?php
                         }
                         ?>
-                        <input id="check-<?php echo $question['placement']; ?>" class="check <?php echo $question['placement']; ?> active" type="button" name="check" value="Controleer antwoord" onclick="checkAnswer(<?php echo $question['id'] . ', ' . $question['placement'] . ', ' . $quizTiming['id']; ?>)">
+                        <input id="check-<?php echo $question['placement']; ?>" class="check <?php echo $question['placement']; ?> active" type="button" name="check" value="Controleer antwoord" onclick="checkAnswer(<?php echo $question['id'] . ', ' . $question['placement'] . ', ' . $quizTiming['id'] . ', ' . $question['type']; ?>)">
 
                         <?php
                         if ($question['placement'] != count($quizProgress)) {

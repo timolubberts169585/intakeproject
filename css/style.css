@@ -18,31 +18,25 @@ body {
 
 .login {
   width: 500px;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   margin: 0 auto;
   text-align: center;
   border: 1px solid #ccc;
   padding: 20px;
-  -webkit-box-shadow: 2px 2px 5px #ccc;
-          box-shadow: 2px 2px 5px #ccc;
+  box-shadow: 2px 2px 5px #ccc;
   border-radius: 25px;
 }
-
 .login__title h2 {
   margin: 0px auto;
 }
-
 .login__form--input {
   width: 100%;
   padding: 15px 20px;
   margin: 10px 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 15px;
 }
-
 .login__form--button {
   width: 100%;
   background-color: #ff7e00;
@@ -53,11 +47,9 @@ body {
   cursor: pointer;
   color: white;
 }
-
 .login__form--button a {
   color: white;
 }
-
 .login__form--register a {
   display: block;
   width: 100%;
@@ -75,36 +67,32 @@ body {
   position: absolute;
   display: none;
 }
-
 .question__nav {
   padding-top: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 .question__nav .next {
   display: none;
 }
-
 .question__nav .check {
   display: none;
 }
-
 .question__nav .submit {
   display: none;
 }
-
 .question__answer--correct {
   display: none;
 }
-
 .question__answer--false {
   display: none;
+}
+.question .code-htmlcss__container {
+  display: flex;
+  gap: 50px;
+}
+.question .code-htmlcss .divider {
+  border: solid 1px grey;
 }
 
 .active {
@@ -113,5 +101,4 @@ body {
 
 .done {
   pointer-events: none;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

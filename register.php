@@ -72,19 +72,7 @@ if (!empty($_POST['register'])) {
 
                             
                             foreach($questions as $question){
-                                $query = "INSERT INTO quiz_progress (quiz_timingid, question) VALUES (:quiz_timingid, :question)";
-                                // $data = [
-                                //     'quiz_timingid' => $lastId,
-                                //     'question' => $question['id'],
-                                //     'correct' => 0
-                                // ];
-                                // $stmt->execute($data);
-                                $stmt = $pdo->prepare($query);
-                                $stmt->bindParam(':quiz_timingid', $lastId, PDO::PARAM_INT);
-                                $stmt->bindParam(':question', $question['id'], PDO::PARAM_INT);
-                                // $stmt->bindParam(':correct', false, PDO::PARAM_BOOL);
-                                $stmt->execute();
-                                //echo "Last id = " . $lastId . " -- Question id = " . $question['id'] . "<br>";
+
                             }
 
 
