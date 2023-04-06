@@ -40,6 +40,7 @@ if(isset($_SESSION['userid'])){
                  <button class="knop">Ouders</button>
                 </a>
                 <p>Bent u ouder of een verzorger?<br>log dan in bij Ouders.</p>
+                <p>Voor meer informatie over de opleiding ga dan naar <a class='informatie' href="https://www.aventus.nl/opleidingen/software-developer-bol">aventus informatie.</a></p>
             </div>
             <div class="col-sm-4">
                 <img class="foto" src="https://www.aventus.nl/sites/default/files/styles/image/public/images/opleidingen_in_de_it.jpeg?itok=ii5AE-x4&timestamp=1585573307">
@@ -49,6 +50,7 @@ if(isset($_SESSION['userid'])){
                  <button class="knop">Studenten</button>
                 </a>      
                 <p>Ben je student of leerling?<br>log dan in bij Studenten.</p>
+                <p>Ben je benieuwt welke vakken je allemaal krijgt. Ga dan naar <a class='informatie' href="./vakken.php">vakken.</a></p>
             </div>
         </div>
     </div>
