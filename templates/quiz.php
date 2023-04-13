@@ -23,7 +23,7 @@ $stmt = $pdo->query($query);
 $questions = $stmt->fetchAll();
 
 // Update progress with new questions
-foreach($questions as $question){
+foreach ($questions as $question) {
     $query = "  INSERT IGNORE INTO quiz_progress (quiz_timingid, question) VALUES (:quiz_timingid, :question)";
 
     $stmt = $pdo->prepare($query);
@@ -40,7 +40,6 @@ $quizProgress = $stmt->fetchAll();
 
 
 ?>
-<script type="text/javascript" src="../js/script.js"></script>
 
 <main>
     <?php
@@ -54,7 +53,7 @@ $quizProgress = $stmt->fetchAll();
 
             foreach ($questions as $question) {
                 //echo $quizTiming['id'] . ' -- ' . $question['id'] . '<br>';
-                
+
             ?>
 
                 <div id="<?php echo $question['placement']; ?>" class="question">
@@ -67,9 +66,6 @@ $quizProgress = $stmt->fetchAll();
                     } else if ($question['type'] === 4) {
                         include './question_code-htmlcss.php';
                     } else if ($question['type'] === 5) {
-                        ?>
-
-                        <?php
                         include './question_code-py.php';
                     }
                     ?>
@@ -111,5 +107,6 @@ $quizProgress = $stmt->fetchAll();
     ?>
 
 </main>
+
 <?php
 include_once '../footer.php';

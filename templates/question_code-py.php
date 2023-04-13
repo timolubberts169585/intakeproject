@@ -10,11 +10,7 @@
 <div class="question__wrapper code-htmlcss">
     <div class="code-htmlcss__container">
         <div id="left" class="code-htmlcss__container--left">
-            <form action="#">
-                <textarea name="input" id="input" cols="30" rows="10">
-                    <?php echo trim($question['options']); ?>
-                </textarea>
-            </form>
+            <div id="code-editor"></div>
         </div>
         <div class="divider"></div>
         <div id="right" class="code-htmlcss__container--right">

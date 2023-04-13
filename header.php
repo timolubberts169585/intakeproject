@@ -7,8 +7,9 @@
 </head>
 
 <body>
+  <?php $path = 'http://82.172.3.247/intakeproject'; ?>
+
   <?php
-  $path = 'http://82.172.3.247/intakeproject';
   session_start();
   ?>
   <link rel="stylesheet" href="<?php echo $path; ?>/css/bootstrap.min.css">
@@ -16,7 +17,8 @@
   <link rel="stylesheet" href="<?php echo $path; ?>/css/style.css">
   <link rel="stylesheet" href="<?php echo $path; ?>/css/header.css">
   <link rel="stylesheet" href="<?php echo $path; ?>/css/footer.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/theme/dracula.min.css">
 
   <header class="header <?php
                         if (basename($_SERVER['REQUEST_URI']) == 'quiz.php?quizid=2') {
