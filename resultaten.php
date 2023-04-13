@@ -7,7 +7,7 @@ if(isset($_SESSION['userid'])){
 }
 ?>
 <main>
-
+<?php include './js/resultaat.js'; ?>
     <!-- Content -->
     <div class="container pagina">
         <div id="rij" class="row">
