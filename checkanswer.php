@@ -47,7 +47,7 @@ function check_multipleChoice($question, $pdo)
 
     $correct = 0;
 
-    if ($question['correct_answer'] == $_POST['input']) {
+    if ($question['correct_answer']-1 == $_POST['input']) {
         echo 'true';
         $correct = 1;
     } else {

@@ -142,3 +142,7 @@ function builtinRead(x) {
         throw "File not found: '" + x + "'";
     return Sk.builtinFiles["files"][x];
 }
+
+function runit_htmlcss(){
+    
+}
