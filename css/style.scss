@@ -142,6 +142,13 @@ body{
         &__container{
             display: flex;
             gap:50px;
+
+            #code-editor{
+                min-width:450px;
+                .CodeMirror-line{
+                    // left:40px;
+                }
+            }
         }
 
         .divider{

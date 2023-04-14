@@ -91,6 +91,9 @@ body {
   display: flex;
   gap: 50px;
 }
+.question .code-htmlcss__container #code-editor {
+  min-width: 450px;
+}
 .question .code-htmlcss .divider {
   border: solid 1px grey;
 }
