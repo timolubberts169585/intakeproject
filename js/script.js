@@ -109,8 +109,8 @@ function prevQuestion() {
     questions[activeQuestion].classList.add('active');
 }
 
-function a_submit() {
-    window.location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+function a_submit(quizid) {
+    window.location.replace("82.172.3.247/resultaten.php?quizid="+quzid);
 
 }
 

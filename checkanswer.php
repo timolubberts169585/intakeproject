@@ -39,7 +39,18 @@ function check_open($question, $pdo){
 }
 
 function check_htmlcss($question, $pdo){
+    $correct = 1;
+    echo 'true';
+    //todo alles
 
+    $query = 'UPDATE quiz_progress SET input = :input, correct = :correct WHERE quiz_timingid = :quiz_timingid AND question = :question';
+    $data = [
+        'input' => $_POST['input'],
+        'correct' => $correct,
+        'quiz_timingid' => $_POST['quiztimingid'],
+        'question' => $_POST['id'],
+    ];
+    $stmt = $pdo->prepare($query)->execute($data);
 }
 
 function check_multipleChoice($question, $pdo)
@@ -69,4 +80,13 @@ function check_python($question, $pdo)
     include_once './connect.php';
     echo $_POST['input'];
     $correct = 0;
+
+    $query = 'UPDATE quiz_progress SET input = :input, correct = :correct WHERE quiz_timingid = :quiz_timingid AND question = :question';
+    $data = [
+        'input' => $_POST['input'],
+        'correct' => $correct,
+        'quiz_timingid' => $_POST['quiztimingid'],
+        'question' => $_POST['id'],
+    ];
+    $stmt = $pdo->prepare($query)->execute($data);
 }
