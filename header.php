@@ -10,6 +10,7 @@
   <?php $path = 'http://82.172.3.247/intakeproject'; ?>
 
   <?php
+  $path = 'http://82.172.3.247/intakeproject';
   session_start();
   ?>
   <link rel="stylesheet" href="<?php echo $path; ?>/css/bootstrap.min.css">

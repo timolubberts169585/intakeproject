@@ -164,3 +164,71 @@ body{
     pointer-events: none;
 }
 
+
+.jumbotron{
+    margin-top: 20px;
+}
+
+.knop{
+    background-color: lightblue;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.knop:hover{
+    opacity: 0.8;
+}
+
+.terug{
+    margin-left: 15px;
+}
+
+.foto{
+    width: 100%;
+    border-radius: 6px;
+}
+
+.informatie{
+    text-decoration: none;
+    color: lightblue;
+}
+
+.informatie:hover{
+    opacity: 0.8;
+}
+
+.row{
+    margin-bottom: 40px;
+}
+
+#rij{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.lijst{
+    display: inline-block;
+}
+
+.pagina{
+    padding-top: 20px;
+}
+
+.goed{
+    color: green;
+}
+
+.matig{
+    color: #ff7e00;
+}
+
+.slecht{
+    color: red;
+}
+
+.vakken{
+    width: 100%;
+}

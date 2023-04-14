@@ -1,7 +1,7 @@
 <?php 
 include_once './header.php'; 
 if(!isset($_SESSION['userid'])){
-    header('Location: ./login.php');
+    header('Location: intakeproject-guido/home.php');
     die();
   }
 ?>
