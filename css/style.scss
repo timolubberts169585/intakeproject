@@ -102,30 +102,65 @@ body{
 
     }
 
+    &__nav{
+        padding-top:40px;
+        display: flex;
+        flex-direction: column;
+        .prev{
+    
+        }
+        .next{
+            display: none;
+        }
+        
+        .check{
+            display: none;
+        
+        }
+        
+        .submit{
+            display: none;
+        }
+    }
 
+    &__answer{
+        
+        &--correct{
+            display: none;
+        }
 
+        &--false{
+            display: none;
+
+        }
+    }
     .multiplechoice{
 
+    }
+
+    .code-htmlcss{
+        &__container{
+            display: flex;
+            gap:50px;
+
+            #code-editor{
+                min-width:450px;
+                .CodeMirror-line{
+                    // left:40px;
+                }
+            }
+        }
+
+        .divider{
+            border: solid 1px grey;
+        }
     }
 }
 .active{
     display: block !important;
 }
-.prev{
 
-}
-.next{
-    display: none;
+.done{
+    pointer-events: none;
 }
 
-.check{
-    display: none;
-}
-
-.submit{
-    display: none;
-}
-
-.answered{
-
-}
