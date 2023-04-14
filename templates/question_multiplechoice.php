@@ -28,3 +28,15 @@
     </form>
     
 </div>
+<div class="question__answer">
+        <div class="question__answer--correct">
+            <p>
+                Correct! Het antwoord is <?php echo htmlentities($options[$question['correct_answer']-1]); ?>
+            </p>
+        </div>
+        <div class="question__answer--false">
+            <p>
+                Onjuist... Het correcte antwoord is <?php echo htmlentities($options[$question['correct_answer']-1]); ?>
+            </p>
+        </div>
+</div>
